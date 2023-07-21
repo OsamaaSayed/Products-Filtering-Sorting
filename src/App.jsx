@@ -32,7 +32,7 @@ function App() {
         ? (a, b) => parseInt(a.price) - parseInt(b.price)
         : (a, b) => parseInt(b.price) - parseInt(a.price);
 
-    const sortedProducts = (filteredProducts || products)
+    const sortedProducts = (products || filteredProducts)
       .slice()
       .sort(sortFunc);
 
