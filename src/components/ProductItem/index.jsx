@@ -12,25 +12,23 @@ const ProductItem = ({
   return (
     <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
-        <a className="w-full" href="" target="_blank">
+
           <img
             loading="lazy"
             className="w-full h-96 object-cover transition-all duration-500 ease-in-out hover:scale-105"
             src={images[0]}
             alt=""
           />
-        </a>
+
       </figure>
       <div className="card-body">
         <div className="card-actions">
           <div className="self-center flex-1">
-            <a
-              href=""
-              target="_blank"
-              className="font-semibold text-base block hover:underline"
+            <span
+              className="font-semibold text-base block"
             >
               {title}
-            </a>
+            </span>
             <span>${price}</span>
           </div>
           <div className="flex justify-center items-center gap-1 self-center">

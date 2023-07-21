@@ -11,12 +11,18 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const filterByCategory = (category) => {
-    console.log(category);
+    const filteredProducts = products.filter(
+      (product) => product.category === category
+    );
+    setFilteredProducts(filteredProducts);
+  };
+
+  const filterByPrice = (price) => {
+    console.log(price, "input");
     const filteredProducts = products.filter((product) => {
-      console.log(product.category);
-      return product.category === category;
+      console.log(product.price, "product");
+      return product.price <= +price;
     });
-    console.log(filteredProducts);
     setFilteredProducts(filteredProducts);
   };
 
@@ -33,6 +39,9 @@ function App() {
       setProducts(sortedByHeighest);
     }
   };
+
+  const allProductsPrices = products.map((product) => product.price);
+
 
   useEffect(() => {
     const getProducts = async () => {
@@ -60,7 +69,9 @@ function App() {
         <div className="2xs:col-span-12 md:col-span-3">
           <FilterProducts
             filterByCategory={filterByCategory}
+            filterByPrice={filterByPrice}
             setFilteredProducts={setFilteredProducts}
+            allProductsPrices={allProductsPrices}
           />
         </div>
         <div className="2xs: col-span-12 md:col-span-9 grid grid-cols-fill gap-5">

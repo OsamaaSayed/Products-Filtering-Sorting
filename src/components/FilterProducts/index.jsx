@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-const FilterProducts = ({ filterByCategory, setFilteredProducts }) => {
+const FilterProducts = ({
+  filterByCategory,
+  filterByPrice,
+  setFilteredProducts,
+  allProductsPrices,
+}) => {
+  const [price, setPrice] = useState(0);
+
+  const handleOnChange = (e) => {
+    setPrice(e.target.value);
+    filterByPrice(e.target.value);
+  };
+
+  const minPrice = Math.min(...allProductsPrices);
+  const maxPrice = Math.max(...allProductsPrices);
+
+  console.log(minPrice);
+  console.log(maxPrice);
+
   return (
     <div className="flex flex-col gap-5">
       <h1 className="underline font-semibold text-2xl">Filter</h1>
@@ -63,15 +81,15 @@ const FilterProducts = ({ filterByCategory, setFilteredProducts }) => {
         <div className="divider"></div>
         <h2 className="mb-3 text-lg font-medium">Price</h2>
         <div className="flex flex-col gap-2">
-          <button className="btn w-40" value="">
-            Electronics
-          </button>
-          <button className="btn w-40" value="">
-            Clothes
-          </button>
-          <button className="btn w-40" value="">
-            Men
-          </button>
+          <input
+            onChange={handleOnChange}
+            type="range"
+            min={minPrice}
+            max={maxPrice}
+            value={price}
+            className="range range-xs"
+          />
+          <p className="font-semibold">${price}</p>
         </div>
       </div>
     </div>
