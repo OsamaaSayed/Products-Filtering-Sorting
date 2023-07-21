@@ -10,8 +10,7 @@ const FilterProducts = ({ filterByCategory, setFilteredProducts }) => {
         <div className="flex flex-col gap-2">
           <button
             onClick={() => setFilteredProducts([])}
-            className="btn w-40 normal-case bg-transparent"
-            value=""
+            className="btn w-40 normal-case bg-transparet"
           >
             All
           </button>

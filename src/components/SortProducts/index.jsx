@@ -1,10 +1,16 @@
 import React from "react";
 
-const SortProducts = () => {
+const SortProducts = ({ sortByPrice }) => {
   return (
     <div>
-      <select className="select select-bordered w-full max-w-xs" name="sort-by" id="">
-        <option selected disabled value="">Sorty by</option>
+      <select
+        onChange={(e) => sortByPrice(e.target.value)}
+        className="select select-bordered w-full max-w-xs"
+        name="sort-by"
+      >
+        <option selected disabled value="">
+          Sorty by
+        </option>
         <option value="lowest">Price(Lowest)</option>
         <option value="highest">Price(Highest)</option>
       </select>

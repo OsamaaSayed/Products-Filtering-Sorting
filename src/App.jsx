@@ -20,6 +20,20 @@ function App() {
     setFilteredProducts(filteredProducts);
   };
 
+  const sortByPrice = (term) => {
+    if (term === "lowest") {
+      const sortedByLowest = [...products].sort(
+        (a, b) => parseInt(a.price) - parseInt(b.price)
+      );
+      setProducts(sortedByLowest);
+    } else {
+      const sortedByHeighest = [...products].sort(
+        (a, b) => parseInt(b.price) - parseInt(a.price)
+      );
+      setProducts(sortedByHeighest);
+    }
+  };
+
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -40,7 +54,7 @@ function App() {
     <>
       <div className="container mx-auto py-5 flex justify-between items-center border-b-2">
         <h1 className="text-5xl font-bold">Our Products</h1>
-        <SortProducts />
+        <SortProducts sortByPrice={sortByPrice} />
       </div>
       <div className="container mx-auto py-20 grid grid-cols-12 gap-5">
         <div className="2xs:col-span-12 md:col-span-3">
