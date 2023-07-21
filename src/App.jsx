@@ -12,7 +12,6 @@ function App() {
 
   const allProductsPrices = products.map((product) => product.price);
 
-
   const filterByCategory = (category) => {
     const filteredProducts = products.filter(
       (product) => product.category === category
@@ -42,8 +41,6 @@ function App() {
       : setProducts(sortedProducts);
   };
 
-
-
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -51,6 +48,7 @@ function App() {
         const { data } = await axios.get("https://dummyjson.com/products");
         console.log(data.products);
         setProducts(data.products);
+        setIsLoading(false);
       } catch (err) {
         setIsLoading(false);
         console.log(err);
@@ -59,6 +57,14 @@ function App() {
 
     getProducts();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto min-h-screen flex justify-center items-center text-center">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
+  }
 
   return (
     <>
