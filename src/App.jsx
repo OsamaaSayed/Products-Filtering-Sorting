@@ -72,7 +72,7 @@ function App() {
         <h1 className="text-5xl font-bold">Our Products</h1>
         <SortProducts sortByPrice={sortByPrice} />
       </div>
-      <div className="container mx-auto py-20 grid grid-cols-12 gap-5">
+      <div className="container mx-auto 2xs:py-10 md:py-20 grid grid-cols-12 gap-5">
         <div className="2xs:col-span-12 md:col-span-3">
           <FilterProducts
             filterByCategory={filterByCategory}

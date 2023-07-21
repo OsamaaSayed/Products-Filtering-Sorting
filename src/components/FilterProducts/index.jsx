@@ -17,7 +17,7 @@ const FilterProducts = ({
   const maxPrice = Math.max(...allProductsPrices);
 
   return (
-    <div className="flex flex-col gap-5 2xs:justify-center 2xs:items-center">
+    <div className="flex flex-col gap-5 2xs:justify-center 2xs:items-center md:items-start">
       <h1 className="underline font-semibold text-2xl w-full 2xs:text-left">Filter</h1>
 
       <div>
