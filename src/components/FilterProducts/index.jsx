@@ -16,9 +16,6 @@ const FilterProducts = ({
   const minPrice = Math.min(...allProductsPrices);
   const maxPrice = Math.max(...allProductsPrices);
 
-  console.log(minPrice);
-  console.log(maxPrice);
-
   return (
     <div className="flex flex-col gap-5">
       <h1 className="underline font-semibold text-2xl">Filter</h1>

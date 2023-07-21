@@ -10,6 +10,9 @@ function App() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const allProductsPrices = products.map((product) => product.price);
+
+
   const filterByCategory = (category) => {
     const filteredProducts = products.filter(
       (product) => product.category === category
@@ -18,29 +21,27 @@ function App() {
   };
 
   const filterByPrice = (price) => {
-    console.log(price, "input");
     const filteredProducts = products.filter((product) => {
-      console.log(product.price, "product");
       return product.price <= +price;
     });
     setFilteredProducts(filteredProducts);
   };
 
   const sortByPrice = (term) => {
-    if (term === "lowest") {
-      const sortedByLowest = [...products].sort(
-        (a, b) => parseInt(a.price) - parseInt(b.price)
-      );
-      setProducts(sortedByLowest);
-    } else {
-      const sortedByHeighest = [...products].sort(
-        (a, b) => parseInt(b.price) - parseInt(a.price)
-      );
-      setProducts(sortedByHeighest);
-    }
+    const sortFunc =
+      term === "lowest"
+        ? (a, b) => parseInt(a.price) - parseInt(b.price)
+        : (a, b) => parseInt(b.price) - parseInt(a.price);
+
+    const sortedProducts = (filteredProducts || products)
+      .slice()
+      .sort(sortFunc);
+
+    filteredProducts
+      ? setFilteredProducts(sortedProducts)
+      : setProducts(sortedProducts);
   };
 
-  const allProductsPrices = products.map((product) => product.price);
 
 
   useEffect(() => {
