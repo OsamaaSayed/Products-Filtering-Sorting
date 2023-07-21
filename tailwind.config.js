@@ -16,7 +16,7 @@ export default {
         "2xl": "1536px",
       },
       gridTemplateColumns:{
-      fill:'repeat(auto-fill,minmax(300px,1fr))'
+      fill:'repeat(auto-fill,minmax(320px,1fr))'
       }
     },
   },

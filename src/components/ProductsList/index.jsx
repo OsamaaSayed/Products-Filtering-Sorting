@@ -1,12 +1,16 @@
 import React from "react";
 import ProductItem from "./../ProductItem/index";
 
-const ProductsList = ({ products }) => {
+const ProductsList = ({ products, filteredProducts }) => {
   return (
     <>
-      {products.map((product) => (
-        <ProductItem key={product.id} {...product} />
-      ))}
+      {filteredProducts.length
+        ? filteredProducts.map((product) => (
+            <ProductItem key={product.id} {...product} />
+          ))
+        : products.map((product) => (
+            <ProductItem key={product.id} {...product} />
+          ))}
     </>
   );
 };
