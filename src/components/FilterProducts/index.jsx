@@ -17,12 +17,12 @@ const FilterProducts = ({
   const maxPrice = Math.max(...allProductsPrices);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 2xs:justify-center 2xs:items-center">
       <h1 className="underline font-semibold text-2xl">Filter</h1>
 
       <div>
         <h2 className="mb-3 text-lg font-medium">Category</h2>
-        <div className="flex flex-col gap-2">
+        <div className="flex gap-2 2xs:flex-row 2xs:flex-wrap  md:flex-col ">
           <button
             onClick={() => setFilteredProducts([])}
             className="btn w-40 normal-case bg-transparet"
@@ -74,7 +74,7 @@ const FilterProducts = ({
         </div>
       </div>
 
-      <div>
+      <div className="w-full">
         <div className="divider"></div>
         <h2 className="mb-3 text-lg font-medium">Price</h2>
         <div className="flex flex-col gap-2">

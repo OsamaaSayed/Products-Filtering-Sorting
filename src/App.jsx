@@ -68,7 +68,7 @@ function App() {
 
   return (
     <>
-      <div className="container mx-auto py-5 flex justify-between items-center border-b-2">
+      <div className="container mx-auto py-5 flex 2xs:flex-col 2xs:gap-2 2xs:items-start md:flex-row md:justify-between md:items-center border-b-2">
         <h1 className="text-5xl font-bold">Our Products</h1>
         <SortProducts sortByPrice={sortByPrice} />
       </div>
