@@ -16,9 +16,62 @@ const FilterProducts = ({
   const minPrice = Math.min(...allProductsPrices);
   const maxPrice = Math.max(...allProductsPrices);
 
+  const btnsArr = [
+    {
+      id: 1,
+      label: "Smart Phones",
+      value: "smartphones",
+      handleClick: (e) => {
+        filterByCategory(e.target.value);
+      },
+    },
+    {
+      id: 2,
+      label: "Laptops",
+      value: "laptops",
+      handleClick: (e) => {
+        filterByCategory(e.target.value);
+      },
+    },
+    {
+      id: 3,
+      label: "Fragrances",
+      value: "fragrances",
+      handleClick: (e) => {
+        filterByCategory(e.target.value);
+      },
+    },
+    {
+      id: 4,
+      label: "Skincare",
+      value: "skincare",
+      handleClick: (e) => {
+        filterByCategory(e.target.value);
+      },
+    },
+    {
+      id: 5,
+      label: "Groceries",
+      value: "groceries",
+      handleClick: (e) => {
+        filterByCategory(e.target.value);
+      },
+    },
+    {
+      id: 6,
+      label: "Decoration",
+      value: "home-decoration",
+      handleClick: (e) => {
+        filterByCategory(e.target.value);
+      },
+    },
+  ];
+
   return (
     <div className="flex flex-col gap-5 2xs:justify-center 2xs:items-center md:items-start">
-      <h1 className="underline font-semibold text-2xl w-full 2xs:text-left">Filter</h1>
+      <h1 className="border-b py-1 font-semibold text-2xl w-full 2xs:text-left">
+        Filter
+      </h1>
 
       <div>
         <h2 className="mb-3 text-lg font-medium">Category</h2>
@@ -29,48 +82,16 @@ const FilterProducts = ({
           >
             All
           </button>
-          <button
-            onClick={(e) => filterByCategory(e.target.value)}
-            value="smartphones"
-            className="btn w-40 normal-case bg-transparent"
-          >
-            Smart Phones
-          </button>
-          <button
-            onClick={(e) => filterByCategory(e.target.value)}
-            value="laptops"
-            className="btn w-40 normal-case bg-transparent"
-          >
-            Laptops
-          </button>
-          <button
-            onClick={(e) => filterByCategory(e.target.value)}
-            value="fragrances"
-            className="btn w-40 normal-case bg-transparent"
-          >
-            Fragrances
-          </button>
-          <button
-            onClick={(e) => filterByCategory(e.target.value)}
-            value="skincare"
-            className="btn w-40 normal-case bg-transparent"
-          >
-            Skincare
-          </button>
-          <button
-            onClick={(e) => filterByCategory(e.target.value)}
-            value="groceries"
-            className="btn w-40 normal-case bg-transparent"
-          >
-            Groceries
-          </button>
-          <button
-            onClick={(e) => filterByCategory(e.target.value)}
-            value="home-decoration"
-            className="btn w-40 normal-case bg-transparent"
-          >
-            Decoration
-          </button>
+          {btnsArr.map((btn) => (
+            <button
+              key={btn.id}
+              onClick={btn.handleClick}
+              value={btn.value}
+              className="btn w-40 normal-case bg-transparent"
+            >
+              {btn.label}
+            </button>
+          ))}
         </div>
       </div>
 
